@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyForge AI — Intelligent Study Workspace powered by Google Gemma</title>
+  <meta name="description" content="Open-source AI study platform using Google Antigravity, Google Gemma (gemma-4-26b-a4b-it), and local Ollama. Upload notes, generate summaries, and take interactive quizzes." />
+  
+  <!-- Favicon / Brand Icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285f4'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" />
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gemma: {
+              blue: '#4285f4',
+              'blue-light': '#8ab4f8',
+              'blue-dark': '#1a73e8',
+              indigo: '#7c3aed',
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              rose: '#ef4444'
+            },
+            canvas: '#080c16',
+            surface: 'rgba(16, 24, 40, 0.75)',
+            surfaceElevated: 'rgba(26, 38, 64, 0.65)'
+          },
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Brand Theme CSS -->
+  <link rel="stylesheet" href="/brand/theme.css" />
+
+  <!-- React 18 & Babel Standalone for TypeScript / JSX execution -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Canvas Confetti for Quiz Celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-[#080c16] text-slate-100 min-h-screen selection:bg-gemma-blue selection:text-white flex flex-col font-body">
+
+  <!-- Master Application Mount Point -->
+  <div id="root" class="flex-1 flex flex-col min-h-screen">
+    <!-- Initial Loader until React Mounts -->
+    <div id="app-loader" class="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-4">
+      <div class="relative w-16 h-16">
+        <div class="absolute inset-0 rounded-full border-4 border-t-gemma-blue border-r-gemma-indigo border-b-transparent border-l-transparent animate-spin"></div>
+        <div class="absolute inset-3 rounded-full bg-blue-600/20 backdrop-blur-sm flex items-center justify-center text-gemma-blue font-bold">G</div>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold font-display gemma-gradient-text">StudyForge AI</h2>
+        <p class="text-xs text-slate-400 mt-1">Initializing Google Gemma Workspace & Active Knowledge Engine...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- StudyForge AI React Application Script -->
+  <script type="text/babel" data-type="module" src="/static/js/app.jsx"></script>
+</body>
+</html>
